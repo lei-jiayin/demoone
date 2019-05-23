@@ -18,6 +18,7 @@ public class DemooneApplicationTests {
     @Test
     public void httpGet() {
         User user = restTemplate.getForObject("http://localhost:8088/user/1", User.class);
+        System.out.println("user = " + user);
     }
 
 }
