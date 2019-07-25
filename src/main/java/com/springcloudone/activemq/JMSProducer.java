@@ -1,6 +1,7 @@
 package com.springcloudone.activemq;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.annotation.JmsListener;
 import org.springframework.jms.core.JmsMessagingTemplate;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
@@ -33,6 +34,15 @@ public class JMSProducer {
      */
     public void sendMessageMap(Destination destination, Map message){
         this.jmsMessagingTemplate.convertAndSend(destination,message);
+    }
+
+    /**
+     * 接收P2P模式下 消费者返回的数据
+     * @param message
+     */
+    @JmsListener(destination = "out.queue")
+    public void receiveResponse(String message){
+        System.out.println("消费者返回的消息：" + message);
     }
 
 }

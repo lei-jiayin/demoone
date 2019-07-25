@@ -28,6 +28,8 @@ public class DemooneApplicationTests {
     private Topic topic;
     @Autowired
     private Queue queue;
+    @Autowired
+    private Queue responseQueue;
 
 
     @Test
@@ -60,9 +62,10 @@ public class DemooneApplicationTests {
 
     @Test
     public void testJms1() {
-        /*for (int i=0;i<10;i++) {
-            jmsProducer.sendMessage(queue,"queue,world!" + i);
-            jmsProducer.sendMessage(topic, "topic,world!" + i);
-        }*/
+        for (int i=0;i<10;i++) {
+            jmsProducer.sendMessageString(queue,"queue,sender!" + i);
+            jmsProducer.sendMessageString(topic, "topic,sender!" + i);
+            jmsProducer.sendMessageString(responseQueue, "response,world!" + i);
+        }
     }
 }
