@@ -89,6 +89,38 @@
             <version>1.9</version>
         </dependency>
         <!-- 结束 -->
+
+        <!-- 音乐播放 -->
+        <dependency>
+            <groupId>javazoom</groupId>
+            <artifactId>jlayer</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+        <!--new Player(new BufferedInputStream(new FileInputStream(new File("musciFilePath")))).play();-->
+        <!--结束-->
+
+        <!-- 另一个语音播放 -->
+        <dependency>
+            <groupId>com.jacob</groupId>
+            <artifactId>jacob</artifactId>
+            <version>1.17</version>
+        </dependency>
+        <!-- end -->
+
+        <!--百度语音播报sdk-->
+        <dependency>
+            <groupId>com.baidu.aip</groupId>
+            <artifactId>java-sdk</artifactId>
+            <version>4.4.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.json/json -->
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20180813</version>
+        </dependency>
+
     </dependencies>
 
     <dependencyManagement>
