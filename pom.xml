@@ -105,6 +105,13 @@
             <artifactId>jacob</artifactId>
             <version>1.17</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/it.sauronsoftware/jave -->
+        <!-- 计算音频长度 -->
+        <dependency>
+            <groupId>it.sauronsoftware</groupId>
+            <artifactId>jave</artifactId>
+            <version>1.0.2</version>
+        </dependency>
         <!-- end -->
 
         <!--百度语音播报sdk-->

@@ -6,6 +6,8 @@ import com.baidu.aip.util.Util;
 import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
 import com.jacob.com.Variant;
+import it.sauronsoftware.jave.Encoder;
+import it.sauronsoftware.jave.MultimediaInfo;
 import javazoom.jl.player.Player;
 import org.json.JSONObject;
 import org.springframework.util.StringUtils;
@@ -145,10 +147,47 @@ public class MusicUtils {
     }
 
 
+    public static Long getSpeechLength(String path){
+        File source = new File(path);
+        long ls = 0;
+        Encoder encoder = new Encoder();
+        try {
+            MultimediaInfo multimediaInfo = encoder.getInfo(source);
+
+            ls = multimediaInfo.getDuration()/1000;
+//            System.out.println("此音频频时长为:"+ls/1000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return ls;
+    }
+
+    /*public static void main(String[]args){
+        String path= ClassLoader.getSystemResource("test.mp4").getPath();
+        File source = new File(path);
+        Encoder encoder = new Encoder(new OSXffmpeglocator());
+        try {
+            MultimediaInfo multimediaInfo = encoder.getInfo(source);
+
+            long ls = multimediaInfo.getDuration();
+            System.out.println("此视频时长为:"+ls);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }*/
+
+
+
     public static void main(String[] args) {
 //        play(MUSIC_PATH);
 //        voice(FILE_PATH);
-        String name = synthesis(FILE_PATH);
-        play(name);
+//        String name = synthesis(FILE_PATH);
+//        play(name);
+
+        // 测试获取长度
+        System.out.println(getSpeechLength(MUSIC_PATH));
     }
 }
+
+
