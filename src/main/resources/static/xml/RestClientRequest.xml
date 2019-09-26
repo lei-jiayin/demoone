@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RestClientRequest>
+    <option name="biscuits">
+        <list />
+    </option>
+    <option name="httpMethod" value="GET" />
+    <option name="urlBase" value="https://25812328.cpolar.io" />
+    <option name="urlPath" value="/mobile-wx/floristmap/poi/list" />
+    <option name="headers">
+        <list>
+            <KeyValuePair>
+                <option name="key" value="Accept" />
+                <option name="value" value="*/*" />
+            </KeyValuePair>
+            <KeyValuePair>
+                <option name="key" value="Cache-Control" />
+                <option name="value" value="no-cache" />
+            </KeyValuePair>
+        </list>
+    </option>
+    <option name="parameters">
+        <list>
+            <KeyValuePair>
+                <option name="key" value="ak" />
+                <option name="value" value="h5ihMooaXFcxTnGmozyDpwpomdhqYne2" />
+            </KeyValuePair>
+            <KeyValuePair>
+                <option name="key" value="geotable_id" />
+                <option name="value" value="1000005405" />
+            </KeyValuePair>
+            <KeyValuePair>
+                <option name="key" value="coord_type" />
+                <option name="value" value="3" />
+            </KeyValuePair>
+            <KeyValuePair>
+                <option name="key" value="tags" />
+                <option name="value" value="花店" />
+            </KeyValuePair>
+            <KeyValuePair>
+                <option name="key" value="bounds" />
+                <option name="value" value="114.284292,30.547407;114.343796,30.630972" />
+            </KeyValuePair>
+        </list>
+    </option>
+    <option name="parametersEnabled" value="true" />
+    <option name="haveTextToSend" value="false" />
+    <option name="haveFileToSend" value="false" />
+    <option name="isFileUpload" value="false" />
+    <option name="textToSend" value="" />
+    <option name="filesToSend" value="" />
+</RestClientRequest>

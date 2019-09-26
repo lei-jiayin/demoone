@@ -10,9 +10,18 @@ import java.net.UnknownHostException;
  */
 public class NetUtils {
 
+    /**
+     * 获取本地的IP地址
+     * @return
+     * @throws UnknownHostException
+     */
+    public static InetAddress getLocalHost() throws UnknownHostException {
+        return InetAddress.getLocalHost();
+    }
+
+
     public static void main(String[] args) throws UnknownHostException {
-        InetAddress ip = InetAddress.getLocalHost();
-        System.out.println(ip);
+        System.out.println(getLocalHost());
     }
 
 }

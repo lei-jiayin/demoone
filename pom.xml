@@ -171,6 +171,12 @@
             <artifactId>jstl</artifactId>
             <scope>compile</scope>
         </dependency>
+
+        <!-- xml解析jar包 -->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+        </dependency>
     </dependencies>
 
     <dependencyManagement>
