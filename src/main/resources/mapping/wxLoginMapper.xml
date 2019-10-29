@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springcloudone.dao.WxLoginDao">
+
+    <insert id="insert" parameterType="com.springcloudone.entity.WxUser">
+        insert into wx_user(nick_name) values (#{nickName})
+    </insert>
+
+    <update id="setUTF">SET NAMES utf8mb4</update>
+
+    <select id="get" parameterType="int" resultType="com.springcloudone.entity.WxUser">
+        select id,nick_name nickName from wx_user where id = #{id}
+    </select>
+</mapper>

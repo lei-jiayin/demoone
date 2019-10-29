@@ -1,6 +1,9 @@
 package com.springcloudone.utils;
 
+import com.github.binarywang.java.emoji.EmojiConverter;
+
 /**
+ * 字符处理
  * @author xw
  * @date 2019/8/22 10:23
  */
@@ -34,7 +37,36 @@ public class StringUtil {
     }
 
 
+    static EmojiConverter emojiConverter = EmojiConverter.getInstance();
+    /**
+     * 表情转字符
+     * @param emojiStr
+     * @return
+     */
+    public static String toAlias(String emojiStr){
+        String s = emojiConverter.toAlias(emojiStr);
+        return s;
+    }
 
+    /**
+     * 表情转口
+     * @param emojiStr
+     * @return
+     */
+    public static String toUnicode(String emojiStr){
+        String s = emojiConverter.toUnicode(emojiStr);
+        return s;
+    }
+
+    /**
+     * 表情转html编码
+     * @param emojiStr
+     * @return
+     */
+    public static String toHtml(String emojiStr){
+        String s = emojiConverter.toHtml(emojiStr);
+        return s;
+    }
 
 
     public static void main(String[] args) {

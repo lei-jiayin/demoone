@@ -1,5 +1,6 @@
 package com.springcloudone.utils;
 
+
 import net.sf.json.JSONObject;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,13 +14,14 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
+ * 微信验证工具
  * @author xw
  * @date 2019/8/22 9:46
  */
 public class WeiXinUtil {
-    private static String token = "xw";
+    private static String token = "token";
     public final static String APP_ID = "wxe1fe1715b789aab0";
-    public final static String appsecret = "26cac5a1998713555fa399f23129530c";
+    public final static String APPSECRET = "26cac5a1998713555fa399f23129530c";
 
 
 
@@ -104,15 +106,6 @@ public class WeiXinUtil {
         }
         return false;//PC端
     }
-
-
-
-
-
-
-
-
-
 
     /**
      * 检验签名
