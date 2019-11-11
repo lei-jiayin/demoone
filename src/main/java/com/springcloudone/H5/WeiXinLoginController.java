@@ -9,6 +9,7 @@ import com.springcloudone.utils.WeiXinUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -30,17 +31,21 @@ public class WeiXinLoginController {
 
     private static final Logger logger = LoggerFactory.getLogger(WeiXinLoginController.class);
 
+    @Value("${wx.login.url}")
+    private String backURl;
+
     @Autowired
     private WxLoginService wxLoginService;
 
 
     @RequestMapping("login")
     private String login(HttpServletRequest request, HttpServletResponse response){
+        System.out.println(backURl);
         // 域名需要在微信公众号中注册。以下是回调地址
-        String backUrl = "http://6a979b3a.cpolar.io/h5/callBack";
+//        String backUrl = "http://26ef7704.cpolar.io/h5/callBack";
         // 1  用户同意授权获取code
         String url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" + WeiXinUtil.APP_ID
-                + "&redirect_uri=" + URLEncoder.encode(backUrl)
+                + "&redirect_uri=" + URLEncoder.encode(backURl)
                 + "&response_type=code"
                 + "&scope=snsapi_userinfo"
                 + "&state=STATE#wechat_redirect";
@@ -148,6 +153,7 @@ public class WeiXinLoginController {
 
 
     public static void main(String[] args) {
-        System.out.println(WeiXinUtil.getAccessToken(WeiXinUtil.APP_ID,WeiXinUtil.APPSECRET));
+//        System.out.println(WeiXinUtil.getAccessToken(WeiXinUtil.APP_ID,WeiXinUtil.APPSECRET));
+//        System.out.println(backURl);
     }
 }
