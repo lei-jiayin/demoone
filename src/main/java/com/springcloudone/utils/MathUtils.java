@@ -21,8 +21,14 @@ public class MathUtils {
         return a-b;
     }
 
+    /*public static Integer (int a, int b) -> {
+        return a*b;
+    }*/
+
     public static void main(String[] args) {
         System.out.println(mathComponent.getMathAdd());
         System.out.println(add(1, 3));
+
+        System.out.println();
     }
 }
