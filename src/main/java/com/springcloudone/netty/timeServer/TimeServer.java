@@ -20,7 +20,7 @@ public class TimeServer {
         ServerSocket serverSocket = null;
         try{
             serverSocket = new ServerSocket(port); // 绑定端口
-            System.out.println("时间服务器启动端口为" + port);
+            System.out.println("同步阻塞式I/O时间服务器启动端口为" + port);
             Socket socket = null;
             while (true){
                 socket = serverSocket.accept(); // 生成套接字
