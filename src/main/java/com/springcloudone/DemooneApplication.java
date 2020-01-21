@@ -1,5 +1,6 @@
 package com.springcloudone;
 
+import com.springcloudone.netty.webSocket.WebSocketServer;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +15,11 @@ public class DemooneApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(DemooneApplication.class, args);
+        try{
+            new WebSocketServer().run(8090);
+        }catch (Exception e){
+            System.out.println("nettyServerError：" + e.getMessage());
+        }
     }
 
     @Bean
