@@ -21,9 +21,26 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <docker.image.prefix>springboot</docker.image.prefix>
         <netty.version>5.0.0.Alpha2</netty.version>
+        <tablesaw.version>0.38.0</tablesaw.version>
     </properties>
 
     <dependencies>
+
+        <!--tablesaw 数据可视化核心库-->
+        <!-- https://mvnrepository.com/artifact/tech.tablesaw/tablesaw-core -->
+        <dependency>
+            <groupId>tech.tablesaw</groupId>
+            <artifactId>tablesaw-core</artifactId>
+            <version>${tablesaw.version}</version>
+        </dependency>
+        <!--可视化展示组件-->
+        <!-- https://mvnrepository.com/artifact/tech.tablesaw/tablesaw-jsplot -->
+        <dependency>
+            <groupId>tech.tablesaw</groupId>
+            <artifactId>tablesaw-jsplot</artifactId>
+            <version>${tablesaw.version}</version>
+        </dependency>
+
 
         <!-- netty 依赖 -->
         <!-- https://mvnrepository.com/artifact/io.netty/netty-all -->
