@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
+ * 调整数组顺序使奇数位于偶数前面
  * @author xw
  * @date 2020/5/22 10:30
  */
