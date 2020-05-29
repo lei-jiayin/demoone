@@ -5,7 +5,7 @@ package com.demo2020.cods.leetCode.offer;
  * @author xw
  * @date 2020/5/26 15:23
  */
-public class Solution23 {
+public class Solution24 {
         public ListNode reverseList(ListNode head) {
             //申请节点，pre和 cur，pre指向null
             ListNode pre = null;

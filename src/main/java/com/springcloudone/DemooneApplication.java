@@ -4,12 +4,14 @@ import com.springcloudone.netty.webSocket.WebSocketServer;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @MapperScan("com.springcloudone.dao")
+@ServletComponentScan("com.springcloudone.component.filter")
 @EnableScheduling
 public class DemooneApplication {
 
