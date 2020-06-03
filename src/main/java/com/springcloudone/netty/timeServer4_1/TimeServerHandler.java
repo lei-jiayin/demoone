@@ -20,7 +20,6 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
      */
     private int counter;
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
 //        super.channelRead(ctx, msg);
         // 类型转换
@@ -39,7 +38,6 @@ public class TimeServerHandler extends ChannelHandlerAdapter {
         ctx.writeAndFlush(resp);
     }
 
-    @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         // 将缓冲区中的消息 写入 SocketChannel
         ctx.flush();

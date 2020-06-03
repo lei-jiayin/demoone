@@ -28,7 +28,6 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
         req = ("QUERY TIME ORDER" + System.getProperty("line.separator")).getBytes();
     }
 
-    @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         ByteBuf message = null;
         for (int i = 0; i < 100; i++) {
@@ -39,7 +38,6 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
         }
     }
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         // 接收服务器发送来的数据
 //        ByteBuf byteBuf = (ByteBuf) msg;

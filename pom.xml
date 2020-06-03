@@ -20,7 +20,8 @@
         <spring-cloud.version>Greenwich.SR1</spring-cloud.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <docker.image.prefix>springboot</docker.image.prefix>
-        <netty.version>5.0.0.Alpha2</netty.version>
+        <netty.version>4.1.33.Final</netty.version>
+        <!--<netty.version>5.0.0.Alpha2</netty.version>-->
         <tablesaw.version>0.38.0</tablesaw.version>
     </properties>
 
@@ -256,6 +257,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.16</version>
             <scope>runtime</scope>
+        </dependency>
+        <!-- end -->
+        <!-- 整合Redis -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
         <!-- end -->
     </dependencies>

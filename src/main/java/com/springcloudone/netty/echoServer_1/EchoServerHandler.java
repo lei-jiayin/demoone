@@ -16,7 +16,6 @@ public class EchoServerHandler extends ChannelHandlerAdapter {
     // 计数器
     int counter = 0;
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         String body = (String) msg;
         System.out.println("the counter is : " + ++counter + "; 接收到的数据：" + body);

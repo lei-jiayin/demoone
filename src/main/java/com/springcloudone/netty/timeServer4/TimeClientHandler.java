@@ -26,13 +26,11 @@ public class TimeClientHandler extends ChannelHandlerAdapter {
         firstMessage.writeBytes(bytes);
     }
 
-    @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         // 发送消息到服务器
         ctx.writeAndFlush(firstMessage);
     }
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         // 接收服务器发送来的数据
         ByteBuf byteBuf = (ByteBuf) msg;
