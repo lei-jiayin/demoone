@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.springcloudone.dao.UserDao">
+
+    <select id="queryAll" resultType="com.springcloudone.entity.User">
+        select id,user_name userName,password,`name` from user
+    </select>
+
+    <select id="findUserById" resultType="com.springcloudone.entity.User" parameterType="int">
+        select id,user_name userName,password,`name` from user where id = #{id}
+    </select>
+
+    <update id="setUTF">SET NAMES utf8mb4</update>
+
+    <update id="updateUser" parameterType="com.springcloudone.entity.User">
+        update user
+        <trim prefix="set" suffixOverrides=",">
+            <if test="user.userName != null and user.userName != '' ">
+                user_name = #{user.userName},
+            </if>
+            <if test="user.password != null and user.password != ''">
+                password = #{user.password},
+            </if>
+            <if test="user.name != null">
+                name = #{user.name}
+            </if>
+        </trim>
+        where id = #{user.id}
+    </update>
+
+    <delete id="deleteUserById" parameterType="int">
+        delete from user where id = #{id}
+    </delete>
+</mapper>
