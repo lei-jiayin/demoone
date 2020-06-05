@@ -3,6 +3,7 @@ package com.springcloudone.service;
 import com.springcloudone.dao.UserDao;
 import com.springcloudone.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
@@ -30,11 +31,14 @@ public class UserService {
     /**
      * 获取用户策略：先从缓存中获取用户，没有则取数据表中 数据，再将数据写入缓存
      */
+    @Cacheable(cacheNames = {"user"},unless = "#result == null")
     public User findUserById(int id) {
-        String key = "user_" + id;
-
+        //使用缓存注解
+        User user = userDao.findUserById(id);
+        return user;
+        //不使用缓存注解
+        /*String key = "user_" + id;
         ValueOperations<String, User> operations = redisTemplate.opsForValue();
-
         boolean hasKey = redisTemplate.hasKey(key);
         if (hasKey) {
             long start = System.currentTimeMillis();
@@ -57,7 +61,7 @@ public class UserService {
             long end = System.currentTimeMillis();
             System.out.println("查询mysql花费的时间是:" + (end - start)+"s");
             return user;
-        }
+        }*/
 
     }
 
