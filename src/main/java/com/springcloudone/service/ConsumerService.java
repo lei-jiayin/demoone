@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class ConsumerService {
 
+    /**
+     * 监听名为mytopic的topic 组ID为 testGroup
+     * @param record
+     */
     @KafkaListener(topics = "mytopic", groupId = "testGroup")
     public void listen(ConsumerRecord<String, String> record){
         System.out.println(record);

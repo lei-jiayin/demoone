@@ -3,6 +3,7 @@ package com.springcloudone.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,7 +18,11 @@ public class KafkaController {
     private KafkaTemplate<String, String> kafkaTemplate;
 
     @RequestMapping("/send")
-    public void send(){
-        kafkaTemplate.send("mytopic",0,"key","this a messgae");
+    public boolean send(@RequestParam String name){
+        /**
+         * 创建名为mytopic的Topic，传递的消息是name
+         */
+        kafkaTemplate.send("mytopic",name);
+        return true;
     }
 }
