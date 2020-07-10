@@ -34,7 +34,7 @@ public class UserController {
     public String updateUser(){
         User user = new User();
         user.setId(2);
-        user.setUserName("cat");
+        user.setUsername("cat");
         user.setPassword("miaomiao");
         user.setName("张三");
 
@@ -53,7 +53,7 @@ public class UserController {
         User user = userService.findUserById(id);
         Map<String, Object> result = new HashMap<>();
         result.put("id", user.getId());
-        result.put("userName", user.getUserName());
+        result.put("userName", user.getUsername());
         result.put("pass", user.getPassword());
         result.put("name", user.getName());
         return result;

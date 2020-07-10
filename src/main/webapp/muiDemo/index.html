@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">登录页面</h1>
+		</header>
+		<div class="mui-content">
+			<form class="mui-input-group">
+				<div class="mui-input-row">
+					<label>用户名</label>
+					<input id="username" type="text" class="mui-input-clear" placeholder="请输入用户名">
+				</div>
+				<div class="mui-input-row">
+					<label>密码</label>
+					<input type="password" id="password" class="mui-input-password" placeholder="请输入密码">
+				</div>
+				<div class="mui-button-row">
+					<button id="sub" type="button" class="mui-btn mui-btn-primary">确认</button>
+					<button type="button" class="mui-btn mui-btn-danger">取消</button>
+				</div>
+			</form>
+		</div>
+		<script>
+			/*$(function(){
+													var sub = document.getElementById("sub");
+													sub.addEventListener('tap', function() {
+													alert('点击');
+													var username = document.getElementById("username");
+													var password = document.getElementById("password");
+													$.ajax('http://127.0.0.1:8080/test/login', {
+														data: {
+															'username': username.value,
+															'password': password.value
+														},
+														dataType: 'json', //服务器返回json格式数据
+														type: 'post', //HTTP请求类型
+														timeout: 10000, //超时时间设置为10秒；
+									//					headers:{'Content-Type':'application/json'},	头部对PC端有些问题
+														success: function(data) {
+															//服务器返回响应，根据响应结果，分析是否登录成功；
+															console.log(data);
+														},
+														error: function(xhr, type, errorThrown) {
+															//异常处理；
+															console.log(type);
+														}
+													})
+												})
+												});*/
+
+			mui.init();
+
+			mui.plusReady(function() {
+				var username = document.getElementById("username");
+				var password = document.getElementById("password");
+
+				var sub = document.getElementById("sub");
+				console.log(sub);
+				// 绑定事件
+				//				sub.addEventListener("tap", function() {
+				//					alert("点击");
+				//				});
+				// 绑定事件
+				mui(".mui-button-row").on('tap', '.mui-btn-primary', function() {
+					mui.ajax('http://192.168.1.5:8080/test/login', {
+						data: {
+							'username': username.value,
+							'password': password.value
+						},
+						dataType: 'json', //服务器返回json格式数据
+						type: 'post', //HTTP请求类型
+						timeout: 10000, //超时时间设置为10秒；
+						/*headers: {
+							'Content-Type': 'application/json'
+						},*/
+						success: function(data) {
+							//服务器返回响应，根据响应结果，分析是否登录成功；
+
+							if(data.code == '1') {
+								plus.storage.setItem("username", username.value);
+								console.log(data.message);
+								mui.openWindow({
+									url: 'login_success.html',
+									id: 'success'
+								});
+							} else {
+								console.log(data.message);
+								mui.openWindow({
+									url: 'login_fail.html',
+									id: 'fail'
+								});
+							}
+						},
+						error: function(xhr, type, errorThrown) {
+							//异常处理；
+							console.log(type);
+							//							console.log(errorThrown);
+							//							console.log(type);
+
+						}
+					});
+				});
+			});
+		</script>
+	</body>
+
+</html>

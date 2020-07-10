@@ -1,0 +1,8 @@
+{
+	"index.html": {
+		"refer": [
+			"login_fail.html",
+			"login_success.html"
+		]
+	}
+}
