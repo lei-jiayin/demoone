@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
+ * 对user执行的Redis的缓存操作
  * @author xw
  * @date 2020/6/4 11:22
  */
